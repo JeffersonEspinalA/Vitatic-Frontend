@@ -16,11 +16,15 @@ export class ScheduleComponent implements OnInit {
   id?: number;
   constructor(private scheduleService: ScheduleService, private fb: FormBuilder, private toastr: ToastrService) {
     this.form = this.fb.group({
+      name: ["", Validators.required],
       description: ["", Validators.required],
+      category: ["", Validators.required],
+      priority: ["", Validators.required],
+      date: ["", Validators.required],
     });
   }
   ngOnInit(): void {
-    this.onDatatable();
+    // this.onDatatable();
   }
   onDatatable(): void {
     this.scheduleService.getAllActivities().subscribe({
@@ -30,11 +34,15 @@ export class ScheduleComponent implements OnInit {
       error: (e) => console.error(e),
     });
   }
-  editActivy(activity: Activity) {
+  editActivity(activity: Activity) {
     this.accion = "Editar";
     this.id = activity.id;
     this.form.patchValue({
       name: activity.name,
+      description: activity.description,
+      category: activity.category,
+      date: activity.date,
+      priority: activity.priority,
     });
   }
   deleteActivity(id: number) {
@@ -55,7 +63,6 @@ export class ScheduleComponent implements OnInit {
       category: this.form.get("category")?.value,
       priority: this.form.get("priority")?.value,
       date: this.form.get("date")?.value,
-      point: this.form.get("point")?.value,
     };
     if (this.id == undefined) {
       this.scheduleService.addActivity(activity).subscribe({

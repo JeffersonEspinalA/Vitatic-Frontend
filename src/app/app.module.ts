@@ -6,10 +6,10 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from "./components/home/home.component";
-import { ScheduleComponent } from "./components/schedule/schedule.component";
 import { AdvicesectionComponent } from "./components/advicesection/advicesection.component";
 import { InstructionComponent } from "./components/instruction/instruction.component";
 import { ToastrModule } from "ngx-toastr";
+import { ScheduleComponent } from "./components/schedule/schedule.component";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ScheduleComponent, AdvicesectionComponent, InstructionComponent],

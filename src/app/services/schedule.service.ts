@@ -13,10 +13,10 @@ export class ScheduleService {
     return this.http.get<Activity[]>(this.baseUrl);
   }
   addActivity(activity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(this.baseUrl, activity);
+    return this.http.put<Activity>(this.baseUrl, activity);
   }
   updateActivity(id: number, activity: Activity): Observable<Activity> {
-    return this.http.put<Activity>(`${this.baseUrl}/${id}`, activity);
+    return this.http.patch<Activity>(`${"https://localhost:7299/apiSchedule"}/${id}`, activity);
   }
   deleteActivity(id: number): Observable<Activity> {
     return this.http.delete<Activity>(`${"https://localhost:7299/apiSchedule"}/${id}`);

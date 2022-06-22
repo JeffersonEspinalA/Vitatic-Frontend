@@ -3,93 +3,112 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body">
-          <h3 class="titulo">Lista de Actividades</h3>
+          <h3 class="titulo" style="text-align: center">Actividades</h3>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="row mt-4">
-    <div class="col-lg-6">
+  <div class="mt-4 mx-5">
+    <div class="">
       <div class="card">
         <div class="card-body">
-          <h5 class="titulo">{{ accion | uppercase }} TARJETA</h5>
+          <h5 class="titulo">{{ accion | uppercase }} ACTIVIDAD</h5>
 
           <form [formGroup]="form" (ngSubmit)="saveOrUpdateGenre()">
             <div class="input-group input-group-lg mb-3">
               <span class="input-group-text">
-                <i class="fas fa-user" [class.green-icon]="this.form.get('name')?.valid" [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"></i>
+                <i
+                  class="fa fa-user-circle"
+                  [class.green-icon]="this.form.get('name')?.valid"
+                  [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"
+                ></i>
               </span>
               <input formControlName="name" type="text" class="form-control" placeholder="name" />
-
+            </div>
+            <div class="input-group input-group-lg mb-3">
               <span class="input-group-text">
                 <i
-                  class="fas fa-user"
+                  class="fa fa-check-square"
                   [class.green-icon]="this.form.get('description')?.valid"
                   [class.red-icon]="this.form.get('description')?.invalid && this.form.get('description')?.touched"
                 ></i>
               </span>
-              <input formControlName="description" type="text" class="form-control" placeholder="Description" />
+              <input formControlName="description" type="text" class="form-control" placeholder="description" />
+            </div>
 
-              <span class="input-group-text">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text col-2">
                 <i
-                  class="fas fa-user"
+                  class="fa fa-star"
                   [class.green-icon]="this.form.get('category')?.valid"
                   [class.red-icon]="this.form.get('category')?.invalid && this.form.get('category')?.touched"
-                ></i>
+                >
+                  Category
+                </i>
               </span>
-              <input formControlName="category" type="text" class="form-control" placeholder="category" />
-
-              <span class="input-group-text">
+              <select class="form-select" formControlName="category" class="col-10">
+                <option value="Deporte">Deporte</option>
+                <option value="Salud">Salud</option>
+                <option value="Estudio">Estudio</option>
+                <option value="Nutrición">Nutrición</option>
+                <option value="Hogar">Hogar</option>
+                <option value="Eliminar un mal hábito">Eliminar un mal hábito</option>
+              </select>
+            </div>
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text col-2">
                 <i
-                  class="fas fa-user"
+                  class="fa fa-star"
                   [class.green-icon]="this.form.get('priority')?.valid"
                   [class.red-icon]="this.form.get('priority')?.invalid && this.form.get('priority')?.touched"
-                ></i>
+                >
+                  Priority</i
+                >
               </span>
-              <input formControlName="priority" type="text" class="form-control" placeholder="priority" />
+              <select class="form-select col-4" formControlName="priority" aria-placeholder="priority">
+                <option value="Alta">Alta (100 points)</option>
+                <option value="Media">Media (75 points)</option>
+                <option value="Baja">Baja (50 points)</option>
+              </select>
+              <span class="input-group-text ml-5">
+                <i class="fa fa-calendar" [class.green-icon]="this.form.get('date')?.valid" [class.red-icon]="this.form.get('date')?.invalid && this.form.get('date')?.touched"></i>
+              </span>
 
-              <span class="input-group-text">
-                <i class="fas fa-user" [class.green-icon]="this.form.get('date')?.valid" [class.red-icon]="this.form.get('date')?.invalid && this.form.get('date')?.touched"></i>
-              </span>
-              <input formControlName="date" type="text" class="form-control" placeholder="date" />
-
-              <span class="input-group-text">
-                <i class="fas fa-user" [class.green-icon]="this.form.get('point')?.valid" [class.red-icon]="this.form.get('point')?.invalid && this.form.get('point')?.touched"></i>
-              </span>
-              <input formControlName="point" type="text" class="form-control" placeholder="point" />
+              <input class="col-4" type="date" formControlName="date" id="start" name="trip-start" value="2022-06-21" min="2022-01-01" />
             </div>
 
-            <div class="d-grid gap-2">
-              <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg"><i class="fas fa-database"></i>&nbsp; Aceptar</button>
+            <div class="d-grid gap-2 d-flex justify-content-center">
+              <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg"><i class="fa fa-check-circle"></i>&nbsp; Aceptar</button>
             </div>
+           
           </form>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="titulo">Listado de actividades</h5>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let activity of Activities">
+            <td>{{ activity.name }}</td>
+            <td>{{ activity.category }}</td>
+            <td>{{ activity.priority }}</td>
+            <td>{{ activity.date }}</td>
 
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="titulo">LISTADO DE GENEROS</h5>
-          <table class="table">
-            <tbody>
-              <tr *ngFor="let activity of Activities">
-                <td>{{ activity.name }}</td>
-                <!-- <td>
-                    <i
-                      <!-- (click)="editActiviy(activity)" -->
-                <!-- class="far fa-edit text-info" -->
-                <!-- ></i> -->
-                <!-- </td> -->
-                <td>
-                  <i (click)="deleteActivity(activity.id)" class="far fa-trash-alt text-danger"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            <td>
+              <i (click)="editActivity(activity)" class="far fa-edit text-info"></i>
+            </td>
+
+            <td>
+              <i (click)="deleteActivity(activity.id)" class="far fa-trash-alt text-danger"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
