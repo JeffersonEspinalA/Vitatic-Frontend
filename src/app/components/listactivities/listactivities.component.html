@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="titulo" style="text-align: center">Lista de Actividades</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades registradas</h5>
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let activity of Activities">
+              <td>{{ activity.name }}</td>
+              <td>{{ activity.description }}</td>
+              <td>{{ activity.category }}</td>
+              <td>{{ activity.priority }}</td>
+              <td>{{ activity.date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
