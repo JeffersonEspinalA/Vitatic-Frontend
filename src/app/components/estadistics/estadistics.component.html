@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Deportes</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Deporte'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Salud</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Salud'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Estudio</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Estudio'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Nutrición</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Nutrición'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Hogar</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Hogar'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 col-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="titulo">Actividades Completadas Eliminar un mal hábito</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category == 'Eliminar un mal hábito'">
+                <td>{{ activity.name }}</td>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

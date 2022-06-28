@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="titulo" style="text-align: center">Progreso de las Actividades</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mt-4 col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="titulo">Actividades registradas</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Prioridad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let activity of listActivities">
+                <td>{{ activity.name }}</td>
+                <td>{{ activity.category }}</td>
+                <td>{{ activity.priority }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="titulo">Cumplimiento de la actividad</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let progress of listProgress">
+                <td>{{ progress.points }}</td>
+                <td>
+                  <!-- <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Completado</label>
+                  </div> -->
+                  <i (click)="editProgress(progress.id)" class="fa fa-check-square text-danger">CUMPLIDO</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

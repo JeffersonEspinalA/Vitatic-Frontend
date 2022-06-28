@@ -1,0 +1,39 @@
+<div class="card-body">
+  <h3 class="titulo text-white">Sección Consejos</h3>
+</div>
+<form [formGroup]="form" (ngSubmit)="onDatatable()">
+  <div class="input-group input-group-lg mb-3">
+    <span class="input-group-text col-2 col-2">
+      <i class="fa fa-star" [class.green-icon]="this.form.get('category')?.valid" [class.red-icon]="this.form.get('category')?.invalid && this.form.get('category')?.touched">
+        Ingrese Categoria
+      </i>
+    </span>
+    <select class="form-select" formControlName="category" class="col-6">
+      <option value="Deporte">Deporte</option>
+      <option value="Salud">Salud</option>
+      <option value="Estudio">Estudio</option>
+      <option value="Nutrición">Nutrición</option>
+      <option value="Hogar">Hogar</option>
+      <option value="Eliminar un mal hábito">Eliminar un mal hábito</option>
+    </select>
+    <div class="d-grid gap-2 d-flex justify-content-center col-4">
+      <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg"><i class="fa fa-check-circle"></i>&nbsp; Aceptar</button>
+    </div>
+  </div>
+</form>
+
+<div class="mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="titulo">Listado de consejos</h5>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let advice of Advices">
+            <td>{{ advice.content }}</td>
+            <td>{{ advice.category }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
