@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Progress } from '../models/Progress';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Progress } from "../models/Progress";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ProgressService {
   private baseUrl: string = "https://localhost:7299/apiProgress";
@@ -14,5 +14,11 @@ export class ProgressService {
   }
   putProgress(id: number, progress: Progress): Observable<Progress> {
     return this.http.put<Progress>(`${"https://localhost:7299/apiProgress"}/${id}`, progress);
+  }
+  getById(id: number): Observable<Progress> {
+    return this.http.get<Progress>(`${this.baseUrl}/${id}`);
+  }
+  getSuma(categoria:string):Observable<any>{
+    return this.http.get<any>(`${"https://localhost:7299/apiProgress/categoria?categoria="}${categoria}`);
   }
 }

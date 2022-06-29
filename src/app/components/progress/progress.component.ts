@@ -11,11 +11,13 @@ import { ScheduleService } from "src/app/services/schedule.service";
   styleUrls: ["./progress.component.css"],
 })
 export class ProgressComponent implements OnInit {
+  progreso?:Progress;
   id: any;
   listProgress?: Progress[];
   listActivities?: Activity[];
   activity?: Activity;
   puntos?: number;
+  categoria?:string;
   constructor(private progressService: ProgressService, private scheduleService: ScheduleService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
@@ -33,8 +35,9 @@ export class ProgressComponent implements OnInit {
         this.listActivities = data;
       },
       error: (e) => console.error(e),
-    });
+    }); 
   }
+
 
   editProgress(id: number) {
     this.listActivities?.forEach((element) => {
@@ -49,11 +52,12 @@ export class ProgressComponent implements OnInit {
         if (this.activity.priority == "C") {
           this.puntos = 50;
         }
+        this.categoria=element.category;
       }
     });
-
     const progress: Progress = {
       points: this.puntos,
+      category:this.categoria,
     };
 
     this.progressService.putProgress(id, progress).subscribe({
@@ -65,6 +69,5 @@ export class ProgressComponent implements OnInit {
         this.toastr.error("Ocurrio un error", "Error");
       },
     });
-    console.log(id);
   }
 }

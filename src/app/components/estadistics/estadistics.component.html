@@ -1,3 +1,4 @@
+<button (click)="actualizarDatos()" type="button" class="btn btn-success">Mostrar cantidad de puntos por actividad</button>
 <div class="row">
   <div class="mt-4 col-5">
     <div class="card">
@@ -7,13 +8,18 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Puntos</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Deporte'">
-                <td>{{ activity.name }}</td>
+            <tr>
+              <div *ngFor="let activity of listActivities">
+                <div *ngIf="activity.category === 'Deporte' && activity.points !== 0">
+                  <td>{{ activity.name }}</td>
+                  <td>{{ activity.points }}</td>
+                </div>
               </div>
+              <td>{{ sumaDeporte }}<i class="far fa-edit text-info"></i></td>
             </tr>
           </tbody>
         </table>
@@ -28,14 +34,17 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Puntos</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Salud'">
+            <div *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category === 'Salud' && activity.points !== 0">
                 <td>{{ activity.name }}</td>
+                <td>{{ activity.points }}</td>
               </div>
-            </tr>
+            </div>
+            <td>{{ sumaSalud }}<i class="far fa-edit text-info"></i></td>
           </tbody>
         </table>
       </div>
@@ -49,14 +58,17 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Puntos</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Estudio'">
+            <div *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category === 'Estudio' && activity.points !== 0">
                 <td>{{ activity.name }}</td>
+                <td>{{ activity.points }}</td>
               </div>
-            </tr>
+            </div>
+            <td>{{ sumaEstudio }}<i class="far fa-edit text-info"></i></td>
           </tbody>
         </table>
       </div>
@@ -70,14 +82,17 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Puntos</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Nutrición'">
+            <div *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category === 'Nutrición' && activity.points !== 0">
                 <td>{{ activity.name }}</td>
+                <td>{{ activity.points }}</td>
               </div>
-            </tr>
+            </div>
+            <td>{{ sumaNutricion }}<i class="far fa-edit text-info"></i></td>
           </tbody>
         </table>
       </div>
@@ -91,14 +106,17 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Progreso</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Hogar'">
+            <div *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category === 'Hogar' && activity.points !== 0">
                 <td>{{ activity.name }}</td>
+                <td>{{ activity.points }}</td>
               </div>
-            </tr>
+            </div>
+            <td>{{ sumaHogar }}<i class="far fa-edit text-info"></i></td>
           </tbody>
         </table>
       </div>
@@ -112,14 +130,17 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Puntos</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let activity of listActivities">
-              <div *ngIf="activity.category == 'Eliminar un mal hábito'">
+            <div *ngFor="let activity of listActivities">
+              <div *ngIf="activity.category === 'Eliminar un mal hábito' && activity.points !== 0">
                 <td>{{ activity.name }}</td>
+                <td>{{ activity.points }}</td>
               </div>
-            </tr>
+            </div>
+            <td>{{ sumaEliminar }}<i class="far fa-edit text-info"></i></td>
           </tbody>
         </table>
       </div>
